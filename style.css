@@ -1,0 +1,115 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Profile Card */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f4f8;
+}
+
+.profile-card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-10px);
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    border: 4px solid #00aaff;
+    animation: pulse 2s infinite;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+.android-button {
+    background-color: #3DDC84;
+}
+
+.android-button:hover {
+    background-color: #35c575;
+}
+
+.ios-button {
+    background-color: #007aff;
+}
+
+.ios-button:hover {
+    background-color: #0066cc;
+}
+
+.whatsapp-button {
+    background-color: #25D366;
+}
+
+.whatsapp-button:hover {
+    background-color: #1ebe5d;
+}
+
+.email-button {
+    background-color: #00796B;
+}
+
+.email-button:hover {
+    background-color: #005b54;
+}
