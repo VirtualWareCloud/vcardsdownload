@@ -7,13 +7,16 @@
 }
 
 /* Body Background Gradient */
+/* Body Background Silver Grey Gradient */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #00224f, #005a8d, #0093e9);
+    background: linear-gradient(135deg, #c0c0c0, #d3d3d3, #e0e0e0);
     position: relative;
+}
+
 }
 
 /* VirtualWare Logo in Top Left */
