@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thabo Phaahla Profile Card</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        }
+        .profile-card {
+            max-width: 350px;
+            margin: 50px auto;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+        }
+        .profile-image img {
+            width: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .buttons a {
+            display: block;
+            margin: 10px 0;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .android-button { background: #34A853; }
+        .ios-button { background: #007AFF; }
+        .whatsapp-button { background: #25D366; }
+        .email-button { background: #DD4B39; }
+        .buttons .create-button {
+            animation: flash 1.5s infinite;
+            background: #ff5722;
+            font-weight: bold;
+        }
+        @keyframes flash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .form-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container input, .form-container select, .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-container button {
+            background: #007BFF;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="profile-card">
+    <div class="profile-image">
+        <img src="profile.png" alt="Thabo Phaahla">
+    </div>
+    <h2>Thabo Phaahla</h2>
+    <p>Cloud Partner, Virtualware</p>
+    <div class="buttons">
+        <a href="https://github.com/VirtualWareCloud/vcardsdownload/raw/main/Thabo_Phaahla_Android.vcf" class="button android-button" download>
+            Save Android Contact Card
+        </a>
+        <a href="https://github.com/VirtualWareCloud/vcardsdownload/raw/main/Thabo_Phaahla_iOS.vcf" class="button ios-button" download>
+            Save iPhone Contact Card
+        </a>
+        <a href="https://wa.me/27820412395" class="button whatsapp-button" target="_blank">
+            WhatsApp Me
+        </a>
+        <a href="mailto:thabo.phaahla@virtualwarecloud.com" class="button email-button">
+            Email Me
+        </a>
+        <button class="button create-button" id="createProfileButton">
+            Create My Own Profile Card
+        </button>
+    </div>
+</div>
+
+<div class="form-screen" id="formScreen">
+    <div class="form-container">
+        <h3>Create Your Profile Card</h3>
+        <form id="profileForm">
+            <label for="profileType">Choose Profile Type:</label>
+            <select id="profileType" name="profileType">
+                <option value="individual">Individual</option>
+                <option value="company">Company/Enterprise</option>
+            </select>
+            <label for="name">Name/Company Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="headshotOrLogo">Upload Headshot/Logo:</label>
+            <input type="file" id="headshotOrLogo" name="headshotOrLogo" accept="image/*" required>
+            <label for="contact">Contact Information:</label>
+            <input type="text" id="contact" name="contact" placeholder="Phone, Email, etc." required>
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" placeholder="Short description (e.g., Title, Company)">
+            <button type="submit">Generate Profile Card</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('createProfileButton').addEventListener('click', () => {
+        document.getElementById('formScreen').style.display = 'block';
+    });
+
+    document.getElementById('profileForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Profile card created successfully!');
+        document.getElementById('formScreen').style.display = 'none';
+    });
+</script>
+</body>
+</html>
