@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Profile</title>
+    <script src="profileCard.js"></script>
+</head>
+<body>
+    <h1>Create Your Profile Card</h1>
+    <form id="profileForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="profilePicture">Profile Picture:</label>
+        <input type="file" id="profilePicture" name="profilePicture" accept="image/*"><br><br>
+
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="bio"></textarea><br><br>
+
+        <button type="submit">Generate Profile Card</button>
+    </form>
+    <script>
+        document.getElementById("profileForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            generateProfileCard(); // Calls the dynamic profile card generation module
+        });
+    </script>
+</body>
+</html>
