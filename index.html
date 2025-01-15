@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Connect Profile Card</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('VConnect_BNGK.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <div class="profile-image">
+            <img src="profile.png" alt="Profile Image">
+        </div>
+        <h2 id="profileName">Your Name</h2>
+        <p id="profileDescription">Description</p>
+        <div class="buttons">
+            <button id="googleLoginButton">Login with Google</button>
+            <button id="createProfileButton">Create Your Profile</button>
+        </div>
+    </div>
+
+    <div class="form-container" id="formScreen" style="display: none;">
+        <h3>Create Your Profile Card</h3>
+        <form id="profileForm">
+            <label for="profileType">Choose Profile Type:</label>
+            <select id="profileType" name="profileType" required>
+                <option value="individual">Individual</option>
+                <option value="company">Company</option>
+            </select>
+            <label for="name">Name/Company Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="headshotOrLogo">Upload Headshot/Logo:</label>
+            <input type="file" id="headshotOrLogo" name="headshotOrLogo" accept="image/*" required>
+            <label for="contact">Contact Information:</label>
+            <input type="text" id="contact" name="contact" placeholder="Phone, Email, etc." required>
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" placeholder="Short description (e.g., Title, Company)">
+            <button type="submit">Save Profile</button>
+        </form>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-storage.js"></script>
+    <script>
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDKi3vCm4lWR6G9-GQhNjkS0fJZKqCocgE",
+            authDomain: "virtual-connect-ca062.firebaseapp.com",
+            projectId: "virtual-connect-ca062",
+            storageBucket: "virtual-connect-ca062.appspot.com",
+            messagingSenderId: "995919061239",
+            appId: "1:995919061239:web:b5a74e4264acf34a0233f2"
+        };
+
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+        const storage = firebase.storage();
+
+        document.getElementById("googleLoginButton").addEventListener("click", async () => {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            try {
+                const result = await auth.signInWithPopup(provider);
+                alert(`Welcome, ${result.user.displayName}`);
+            } catch (error) {
+                alert("Login failed. Try again.");
+                console.error(error);
+            }
+        });
+
+        document.getElementById("createProfileButton").addEventListener("click", () => {
+            document.getElementById("formScreen").style.display = "block";
+        });
+
+        document.getElementById("profileForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const profileType = document.getElementById("profileType").value;
+            const name = document.getElementById("name").value;
+            const contact = document.getElementById("contact").value;
+            const description = document.getElementById("description").value;
+            const file = document.getElementById("headshotOrLogo").files[0];
+
+            try {
+                const storageRef = storage.ref(`profile_images/${file.name}`);
+                const uploadTask = await storageRef.put(file);
+                const imageUrl = await uploadTask.ref.getDownloadURL();
+
+                await db.collection("profiles").add({
+                    profileType,
+                    name,
+                    contact,
+                    description,
+                    imageUrl,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                });
+
+                alert("Profile saved successfully!");
+                document.getElementById("formScreen").style.display = "none";
+            } catch (error) {
+                alert("Error saving profile. Try again.");
+                console.error(error);
+            }
+        });
+    </script>
+</body>
+</html>
