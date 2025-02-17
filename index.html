@@ -123,6 +123,38 @@
       background-color: var(--yellow);
       color: var(--black);
     }
+    
+    /* Mobile styling for nearly full-screen vCard */
+    @media (max-width: 768px) {
+      .card {
+        width: 95vw;
+        height: 95vh;
+        padding: 30px;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .profile-img {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 20px;
+        transform: translateZ(40px);
+      }
+      .card h1 {
+        font-size: 2em;
+        transform: translateZ(30px);
+      }
+      .card p.subtitle {
+        font-size: 1.2em;
+        margin-bottom: 25px;
+        transform: translateZ(30px);
+      }
+      .buttons a {
+        padding: 16px;
+        font-size: 1.1em;
+      }
+    }
   </style>
 </head>
 <body>
