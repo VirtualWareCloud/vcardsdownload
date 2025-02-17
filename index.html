@@ -17,6 +17,7 @@
       padding: 0;
       box-sizing: border-box;
     }
+    
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       position: relative;
@@ -40,7 +41,7 @@
       object-fit: cover;
     }
     
-    /* Card Wrapper to enable scaling on mobile */
+    /* Card Wrapper centers the card */
     .card-wrapper {
       position: absolute;
       top: 50%;
@@ -133,7 +134,7 @@
       color: var(--black);
     }
     
-    /* Mobile styling: double the card size on mobile devices */
+    /* Mobile styling: card fills almost full screen on mobile devices by default */
     @media (max-width: 768px) {
       .card {
         width: 95vw;
@@ -144,11 +145,6 @@
         flex-direction: column;
         justify-content: center;
       }
-      /* Scale the wrapper to double the size of the card container */
-      .card-wrapper {
-        transform: translate(-50%, -50%) scale(2);
-      }
-      /* Adjust inner elements if needed */
       .profile-img {
         width: 150px;
         height: 150px;
