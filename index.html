@@ -2,47 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thabo Phaahla</title>
+  <title>View PDF</title>
   <style>
-    /* Set the gold background and use flexbox to center the container */
-    body {
+    html, body {
+      height: 100%;
       margin: 0;
-      padding: 0;
-      background-color: gold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
     }
-    /* Responsive container for the PDF */
-    .iframe-container {
-      width: 80%;
-      max-width: 800px;
-      height: 90vh;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
-    .iframe-container iframe {
+    iframe {
       width: 100%;
       height: 100%;
       border: none;
     }
-    /* For smaller devices (like a Samsung A35), fill the viewport */
-    @media (max-width: 480px) {
-      .iframe-container {
-        width: 100vw;
-        height: 100vh;
-      }
-    }
   </style>
 </head>
 <body>
-  <div style="position: relative; width: 100%; height: 0; padding-top: 56.2225%;
- padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
- border-radius: 8px; will-change: transform;">
-  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-    src="https://www.canva.com/design/DAGfTAzEGvM/sJBcMEj19TNi0VPsRMb38Q/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-  </iframe>
-</div>
+  <iframe src="ThaboPhaahlaPC_Mobile.pdf"></iframe>
 </body>
 </html>
