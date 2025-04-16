@@ -75,13 +75,30 @@
       <a href="https://www.linkedin.com/in/thabo-phaahla-90901657"><i class="fab fa-linkedin"></i> LinkedIn</a>
       <a href="https://github.com/VirtualWareCloud/vcardsdownload/blob/main/TPCV_2025_APRIL.pdf"><i class="fas fa-file-alt"></i> View Full CV</a>
       <a href="https://drive.google.com/drive/folders/12wb2DJOiCD3QJYDxt3_VS8gsXAsWgrmE?usp=sharing"><i class="fas fa-certificate"></i> Certifications</a>
-      <a href="https://virtualwarecloud.github.io/vcardsdownload/"><i class="fas fa-id-card"></i> vCard Download</a>
+      <a href="https://virtualwarecloud.github.io/vcardsdownload/Thabo_Phaahla_Android.vcf"><i class="fas fa-id-card"></i> vCard Download</a>
     </div>
     <div class="share-button">
       <a href="https://wa.me/?text=Check%20out%20Thabo%20Phaahla%27s%20profile%20here%3A%20https%3A%2F%2Fvirtualwarecloud.github.io%2Fvcardsdownload%2F" target="_blank">
-        <img src="share.jpg" alt="Share Contact" title="Share My Contact">
+        <img src="share.jpg" alt="shareContact()" title="Share My Contact">
       </a>
     </div>
   </div>
+<script>
+  function shareContact() {
+    const url = window.location.href;
+    if (navigator.share) {
+      navigator.share({
+        title: document.title,
+        text: "Check out this model profile on Virtual Models!",
+        url: url
+      }).then(() => console.log("Thanks for sharing!"))
+        .catch(console.error);
+    } else {
+      navigator.clipboard.writeText(url)
+        .then(() => alert("Model profile link copied to clipboard!"))
+        .catch(() => alert("Unable to copy the link."));
+    }
+  }
+</script>
 </body>
 </html>
