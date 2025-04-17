@@ -98,7 +98,9 @@
 
   <!-- Scripts -->
   <script src="https://static.elfsight.com/platform/platform.js" async></script>
+
   <script>
+    // SHARE FUNCTION
     function shareContact() {
       const url = window.location.href;
       if (navigator.share) {
@@ -118,10 +120,20 @@
       }
     }
 
-    function openChatbot() {
+    // CHATBOT LOADER CHECK
+    let elfsightReady = false;
+
+    const chatbotCheckInterval = setInterval(() => {
       const elfsightBtn = document.querySelector('[class^="eapps-widget"] button');
       if (elfsightBtn) {
-        elfsightBtn.click();
+        elfsightReady = true;
+        clearInterval(chatbotCheckInterval);
+      }
+    }, 500);
+
+    function openChatbot() {
+      if (elfsightReady) {
+        document.querySelector('[class^="eapps-widget"] button').click();
       } else {
         alert("Chatbot is still loading. Please try again shortly.");
       }
