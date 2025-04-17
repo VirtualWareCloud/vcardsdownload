@@ -77,10 +77,23 @@
       <a href="https://drive.google.com/drive/folders/12wb2DJOiCD3QJYDxt3_VS8gsXAsWgrmE?usp=sharing"><i class="fas fa-certificate"></i> Certifications</a>
       <a href="https://virtualwarecloud.github.io/vcardsdownload/Thabo_Phaahla_Android.vcf"><i class="fas fa-id-card"></i> vCard Download</a>
     </div>
-<div class="share-button" onclick="shareContact()">
-  <img src="share.jpg" alt="Share Contact" title="Share My Contact">
+<!-- Container for Share + Chatbot -->
+<div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 1rem;">
+  
+  <!-- Share Button -->
+  <div class="share-button" onclick="shareContact()" style="cursor: pointer;">
+    <img src="share.jpg" alt="Share Contact" title="Share My Contact" style="width: 40px; height: 40px;">
+  </div>
+
+  <!-- Chatbot Button -->
+  <div class="elfsight-app-f554f838-34e1-4b63-bbae-49e860a848d8" data-elfsight-app-lazy></div>
+
 </div>
 
+<!-- Elfsight Chatbot Script -->
+<script src="https://static.elfsight.com/platform/platform.js" async></script>
+
+<!-- Share Function -->
 <script>
   function shareContact() {
     const url = window.location.href;
@@ -100,9 +113,8 @@
   }
 </script>
 
-<!-- Elfsight AI Chatbot | Thabo's Profile Assistant -->
-<script src="https://static.elfsight.com/platform/platform.js" async></script>
-<div class="elfsight-app-f554f838-34e1-4b63-bbae-49e860a848d8" data-elfsight-app-lazy></div>
+
+
 
 </body>
 </html>
