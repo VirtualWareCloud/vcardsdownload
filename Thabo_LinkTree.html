@@ -13,20 +13,24 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       margin: 0;
+      padding: 1rem;
+      box-sizing: border-box;
     }
     .card {
       background: #1e1e1e;
       padding: 2rem;
       border-radius: 20px;
       text-align: center;
+      width: 100%;
       max-width: 400px;
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     }
     .card img.profile {
-      width: 130px;
-      height: 130px;
+      width: 25%;
+      max-width: 130px;
+      height: auto;
       object-fit: cover;
       border-radius: 50%;
       border: 4px solid #FFD700;
@@ -66,14 +70,29 @@
       height: 48px;
       cursor: pointer;
     }
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      .card {
+        padding: 1rem;
+      }
+      .links a {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+      }
+      .actions img {
+        width: 36px;
+        height: 36px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="card">
-    <img src="thabo.jpg" alt="Thabo Phaahla" class="profile" />
+    <img src="thabo.jpg" alt="Thabo Phaahla's Profile Picture" class="profile" />
     <h2>Thabo Phaahla</h2>
     <p>Software Applications Support Engineer</p>
-
     <div class="links">
       <a href="mailto:thabo.phaahla@virtualwarecloud.com"><i class="fas fa-envelope"></i> Email Me</a>
       <a href="https://wa.me/27820412395?text=Hi%20Thabo%2C%20this%20is%20regarding%20your%20CV"><i class="fab fa-whatsapp"></i> WhatsApp</a>
@@ -82,25 +101,14 @@
       <a href="https://drive.google.com/drive/folders/12wb2DJOiCD3QJYDxt3_VS8gsXAsWgrmE?usp=sharing"><i class="fas fa-certificate"></i> Certifications</a>
       <a href="https://virtualwarecloud.github.io/vcardsdownload/Thabo_Phaahla_Android.vcf"><i class="fas fa-id-card"></i> vCard Download</a>
     </div>
-
-    <!-- Share + Chatbot Row -->
     <div class="actions">
-      <!-- Share Button -->
-      <img src="share.jpg" alt="Share Contact" title="Share My Contact" onclick="shareContact()" />
-
-      <!-- Chatbot Custom Button -->
+      <img src="share.jpg" alt="Share My Contact" title="Share My Contact" onclick="shareContact()" />
       <img src="chatbotEnh.png" alt="Chat with Me" title="Chat with Me" onclick="openChatbot()" />
     </div>
-
-    <!-- Elfsight Chatbot Embed -->
     <div class="elfsight-app-f554f838-34e1-4b63-bbae-49e860a848d8" data-elfsight-app-lazy></div>
   </div>
-
-  <!-- Scripts -->
   <script src="https://static.elfsight.com/platform/platform.js" async></script>
-
   <script>
-    // SHARE FUNCTION
     function shareContact() {
       const url = window.location.href;
       if (navigator.share) {
@@ -120,9 +128,7 @@
       }
     }
 
-    // CHATBOT LOADER CHECK
     let elfsightReady = false;
-
     const chatbotCheckInterval = setInterval(() => {
       const elfsightBtn = document.querySelector('[class^="eapps-widget"] button');
       if (elfsightBtn) {
