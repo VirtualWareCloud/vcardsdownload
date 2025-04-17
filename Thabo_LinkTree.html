@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thabo Phaahla | Linktree CV</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -24,7 +24,7 @@
       max-width: 400px;
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     }
-    .card img {
+    .card img.profile {
       width: 130px;
       height: 130px;
       object-fit: cover;
@@ -54,10 +54,14 @@
     .links a:hover {
       background-color: #e0c200;
     }
-    .share-button {
+    .actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
       margin-top: 1rem;
     }
-    .share-button img {
+    .actions img {
       width: 40px;
       height: 40px;
       cursor: pointer;
@@ -66,9 +70,10 @@
 </head>
 <body>
   <div class="card">
-    <img src="thabo.jpg" alt="Thabo Phaahla">
+    <img src="thabo.jpg" alt="Thabo Phaahla" class="profile" />
     <h2>Thabo Phaahla</h2>
     <p>Software Applications Support Engineer</p>
+
     <div class="links">
       <a href="mailto:thabo.phaahla@virtualwarecloud.com"><i class="fas fa-envelope"></i> Email Me</a>
       <a href="https://wa.me/27820412395?text=Hi%20Thabo%2C%20this%20is%20regarding%20your%20CV"><i class="fab fa-whatsapp"></i> WhatsApp</a>
@@ -77,44 +82,54 @@
       <a href="https://drive.google.com/drive/folders/12wb2DJOiCD3QJYDxt3_VS8gsXAsWgrmE?usp=sharing"><i class="fas fa-certificate"></i> Certifications</a>
       <a href="https://virtualwarecloud.github.io/vcardsdownload/Thabo_Phaahla_Android.vcf"><i class="fas fa-id-card"></i> vCard Download</a>
     </div>
-<!-- Container for Share + Chatbot -->
-<div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 1rem;">
-  
-  <!-- Share Button -->
-  <div class="share-button" onclick="shareContact()" style="cursor: pointer;">
-    <img src="share.jpg" alt="Share Contact" title="Share My Contact" style="width: 40px; height: 40px;">
+
+    <!-- Share + Chatbot Row -->
+    <div class="actions">
+      <!-- Share Button -->
+      <div onclick="shareContact()">
+        <img src="share.jpg" alt="Share Contact" title="Share My Contact" />
+      </div>
+
+      <!-- Chatbot Custom Button -->
+      <div onclick="openChatbot()">
+        <img src="chatbotEnh.jpg" alt="Chat with Me" title="Chat with Me" />
+      </div>
+    </div>
+
+    <!-- Elfsight Chatbot Embed -->
+    <div class="elfsight-app-f554f838-34e1-4b63-bbae-49e860a848d8" data-elfsight-app-lazy></div>
   </div>
 
-  <!-- Chatbot Button -->
-  <div class="elfsight-app-f554f838-34e1-4b63-bbae-49e860a848d8" data-elfsight-app-lazy></div>
-
-</div>
-
-<!-- Elfsight Chatbot Script -->
-<script src="https://static.elfsight.com/platform/platform.js" async></script>
-
-<!-- Share Function -->
-<script>
-  function shareContact() {
-    const url = window.location.href;
-    if (navigator.share) {
-      navigator.share({
-        title: document.title,
-        text: "Check out Thabo Phaahla's Profile",
-        url: url
-      })
-      .then(() => console.log("Thanks for sharing!"))
-      .catch(console.error);
-    } else {
-      navigator.clipboard.writeText(url)
-        .then(() => alert("Contact profile link copied to clipboard!"))
-        .catch(() => alert("Unable to copy the link."));
+  <!-- Scripts -->
+  <script src="https://static.elfsight.com/platform/platform.js" async></script>
+  <script>
+    function shareContact() {
+      const url = window.location.href;
+      if (navigator.share) {
+        navigator
+          .share({
+            title: document.title,
+            text: "Check out Thabo Phaahla's Profile",
+            url: url,
+          })
+          .then(() => console.log("Thanks for sharing!"))
+          .catch(console.error);
+      } else {
+        navigator.clipboard
+          .writeText(url)
+          .then(() => alert("Contact profile link copied to clipboard!"))
+          .catch(() => alert("Unable to copy the link."));
+      }
     }
-  }
-</script>
 
-
-
-
+    function openChatbot() {
+      const elfsightBtn = document.querySelector('[class^="eapps-widget"] button');
+      if (elfsightBtn) {
+        elfsightBtn.click();
+      } else {
+        alert("Chatbot is still loading. Please try again shortly.");
+      }
+    }
+  </script>
 </body>
 </html>
