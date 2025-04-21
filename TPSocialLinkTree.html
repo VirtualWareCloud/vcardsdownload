@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thabo Phaahla | LinkTree Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #000000, #2d2d2d);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.6);
+    }
+    .profile-card {
+      background: rgba(31, 31, 31, 0.85);
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      padding: 2rem;
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #FFD700;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    .links {
+      margin-top: 1.5rem;
+    }
+    .links a {
+      display: block;
+      margin: 0.5rem 0;
+      padding: 0.75rem 1rem;
+      background: #333;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .links a:hover {
+      background: #FFD700;
+      color: #000;
+    }
+    .share-link {
+      margin-top: 2rem;
+      font-style: italic;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="this.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="profile-card">
+    <img src="thabo.jpg" alt="Thabo Phaahla" class="profile-img">
+    <h1>Thabo Phaahla</h1>
+
+    <div class="links">
+      <a href="https://wa.me/27820412395" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://www.facebook.com/touchphaahla" target="_blank"><i class="fab fa-facebook"></i> Old Facebook</a>
+      <a href="https://www.facebook.com/profile.php?id=61567166278278" target="_blank"><i class="fab fa-facebook"></i> New Facebook</a>
+      <a href="https://www.instagram.com/bvhgdstuosch/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://snapchat.com/t/yF5LGHc2" target="_blank"><i class="fab fa-snapchat"></i> Snapchat</a>
+      <a href="https://www.tiktok.com/@thabo.phaahla?_t=ZM-8viexGdHVzR&_r=1" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+      <a href="https://t.me/ChocolateFlex" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+      <a href="https://georgiashopper.net" target="_blank"><i class="fas fa-globe"></i> Website</a>
+      <a href="https://virtualwarecloud.github.io/vcardsdownload/Thabo_Phaahla_Android.vcf"><i class="fas fa-id-card"></i> Save Me As a Contact</a>
+    </div>
+
+    <div class="share-link">
+      <button onclick="shareProfile()" style="background:none;border:none;color:white;cursor:pointer;font-style:italic;font-size:0.95rem;">
+        <i class="fas fa-share-alt"></i> Share My Profile
+      </button>
+    </div>
+
+    <script>
+      function shareProfile() {
+        const shareData = {
+          title: 'Thabo Phaahla',
+          text: 'Check out Thabo’s profile 👇',
+          url: 'https://georgiashopper.net'
+        };
+
+        if (navigator.share) {
+          navigator.share(shareData)
+            .then(() => console.log('Shared successfully!'))
+            .catch((error) => console.error('Error sharing:', error));
+        } else {
+          alert('Sharing not supported on this browser. You can copy this link: https://georgiashopper.net');
+        }
+      }
+    </script>
+  </div>
+</body>
+</html>
