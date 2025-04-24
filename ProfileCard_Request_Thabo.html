@@ -12,6 +12,7 @@
       background: linear-gradient(to right, #000000, #2d2d2d);
       color: #fff;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
@@ -22,13 +23,18 @@
       background: rgba(31, 31, 31, 0.9);
       border-radius: 16px;
       padding: 2rem;
-      max-width: 400px;
+      max-width: 420px;
       width: 100%;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    .form-container img {
+      width: 100px;
+      margin-bottom: 1rem;
     }
 
     .form-container h3 {
-      text-align: center;
       margin-bottom: 1rem;
       color: #FFD700;
     }
@@ -41,6 +47,13 @@
       border-radius: 8px;
       border: none;
       font-family: 'Segoe UI', sans-serif;
+    }
+
+    .form-container .button-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 1rem;
     }
 
     .form-container button {
@@ -57,17 +70,44 @@
     .form-container button:hover {
       background: #e6c200;
     }
+
+    .social-icons {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #FFD700;
+    }
   </style>
 </head>
 <body>
 
   <form id="form" class="form-container">
+    <img src="Lion's Pride Logo Design.png" alt="Thabo Phaahla Logo">
     <h3>Request a Profile Card</h3>
     <input type="text" name="name" placeholder="Your Full Name" required />
     <input type="email" name="email" placeholder="Your Email Address" required />
     <input type="text" name="whatsapp" placeholder="WhatsApp Number" required />
     <textarea name="message" rows="4" placeholder="Tell me what kind of profile card you want..." required></textarea>
-    <button type="submit">Submit Request via WhatsApp</button>
+    <div class="button-group">
+      <button type="button" onclick="goBack()" style="background:#666">← Back</button>
+      <button type="submit">Submit</button>
+    </div>
+    <div class="social-icons">
+      <a href="https://wa.me/27820412395" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/bvhgdstuosch/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/touchphaahla" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://t.me/ChocolateFlex" target="_blank"><i class="fab fa-telegram"></i></a>
+    </div>
   </form>
 
   <script>
@@ -84,17 +124,10 @@
 
       window.open(url, '_blank');
     });
-    
-    <script>
-  document.getElementById("showFormBtn").addEventListener("click", function () {
-    const form = document.getElementById("form");
-    if (form) {
-      form.style.display = "block";
-      form.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-</script>
 
+    function goBack() {
+      window.location.href = 'TPSocialLinkTree.html';
+    }
   </script>
 
 </body>
