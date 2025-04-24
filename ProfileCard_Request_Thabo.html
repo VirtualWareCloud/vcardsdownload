@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Request a Profile Card | Thabo Phaahla</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #000000, #2d2d2d);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .form-container {
+      background: rgba(31, 31, 31, 0.9);
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .form-container h3 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #FFD700;
+    }
+
+    .form-container input,
+    .form-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .form-container button {
+      background: #FFD700;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .form-container button:hover {
+      background: #e6c200;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="form" class="form-container">
+    <h3>Request a Profile Card</h3>
+    <input type="text" name="name" placeholder="Your Full Name" required />
+    <input type="email" name="email" placeholder="Your Email Address" required />
+    <input type="text" name="whatsapp" placeholder="WhatsApp Number" required />
+    <textarea name="message" rows="4" placeholder="Tell me what kind of profile card you want..." required></textarea>
+    <button type="submit">Submit Request via WhatsApp</button>
+  </form>
+
+  <script>
+    document.getElementById("form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = encodeURIComponent(this.name.value);
+      const email = encodeURIComponent(this.email.value);
+      const whatsapp = encodeURIComponent(this.whatsapp.value);
+      const message = encodeURIComponent(this.message.value);
+
+      const text = `Hey Thabo, my name is ${name}. My email is ${email} and my WhatsApp is ${whatsapp}.%0A${message}`;
+      const url = `https://wa.me/27820412395?text=${text}`;
+
+      window.open(url, '_blank');
+    });
+    
+    <script>
+  document.getElementById("showFormBtn").addEventListener("click", function () {
+    const form = document.getElementById("form");
+    if (form) {
+      form.style.display = "block";
+      form.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+</script>
+
+  </script>
+
+</body>
+</html>
