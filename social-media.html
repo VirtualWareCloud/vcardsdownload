@@ -23,8 +23,7 @@
       top: 0;
       left: 0;
       min-width: 100%;
-      min-height
-: 100%;
+      min-height: 100%;
       object-fit: cover;
       z-index: -1;
       filter: brightness(0.6);
@@ -50,6 +49,11 @@
       margin: 0;
       font-size: 1.8rem;
     }
+    .share-link {
+      margin: 1rem 0 1.5rem 0;
+      font-style: italic;
+      font-size: 0.95rem;
+    }
     .links {
       margin-top: 1.5rem;
     }
@@ -67,11 +71,6 @@
       background: #FFD700;
       color: #000;
     }
-    .share-link {
-      margin-top: 2rem;
-      font-style: italic;
-      font-size: 0.95rem;
-    }
   </style>
 </head>
 <body>
@@ -84,13 +83,17 @@
     <img src="thabo.jpg" alt="Thabo Phaahla" class="profile-img">
     <h1>Thabo Phaahla</h1>
 
+    <div class="share-link">
+      <button onclick="shareProfile()" style="background:none;border:none;color:white;cursor:pointer;font-style:italic;font-size:0.95rem;">
+        <i class="fas fa-share-alt"></i> Share My Profile
+      </button>
+    </div>
+
     <div class="links">
-      <a href="https://wa.me/=Hey%20Thabo%2C%20Can%20you%20make%20me%20a%20Profile%20Card%20as%20well%3F%20Do%20you%20still%20charge%20R100%3F
-" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://wa.me/=Hey%20Thabo%2C%20Can%20you%20make%20me%20a%20Profile%20Card%20as%20well%3F%20Do%20you%20still%20charge%20R100%3F" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
       <a href="https://www.facebook.com/touchphaahla" target="_blank"><i class="fab fa-facebook"></i> Old Facebook</a>
       <a href="https://www.facebook.com/profile.php?id=61567166278278" target="_blank"><i class="fab fa-facebook"></i> New Facebook</a>
-      <a href="https://www.instagram.com/bvhgdstuosch/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a
->
+      <a href="https://www.instagram.com/bvhgdstuosch/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
       <a href="https://snapchat.com/t/yF5LGHc2" target="_blank"><i class="fab fa-snapchat"></i> Snapchat</a>
       <a href="https://www.tiktok.com/@thabo.phaahla?_t=ZM-8viexGdHVzR&_r=1" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
       <a href="https://t.me/ChocolateFlex" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
@@ -98,23 +101,14 @@
       <a href="https://virtualwarecloud.github.io/vcardsdownload/Thabo_Phaahla_Android.vcf"><i class="fas fa-id-card"></i> Save Me As a Contact</a>
     </div>
 
-   <div class="button-group" style="text-align: center; margin-top: 2rem;">
-  
-  <div class="share-link" style="margin-bottom: 10px;">
-    <button onclick="shareProfile()" style="background:none;border:none;color:white;cursor:pointer;font-style:italic;font-size:0.95rem;">
-      <i class="fas fa-share-alt"></i> Share My Profile
-    </button>
-  </div>
+    <div class="button-group" style="text-align: center; margin-top: 2rem;">
+      <a href="ProfileCard_Request_Thabo.html" target="_blank">
+        <button style="background:#25D366;color:white;padding:12px 20px;border-radius:8px;font-weight:bold;text-decoration:none;font-family:sans-serif;cursor:pointer;">
+          📇 Request Your Profile Card – R100
+        </button>
+      </a>
+    </div>
 
-<a href="ProfileCard_Request_Thabo.html" target="_blank">
-  <button style="background:#25D366;color:white;padding:12px 20px;border-radius:8px;font-weight:bold;text-decoration:none;font-family:sans-serif;cursor:pointer;">
-    📇 Request Your Profile Card – R100
-  </button>
-</a>
-
-</div>
-
-    
     <script>
       function shareProfile() {
         const shareData = {
