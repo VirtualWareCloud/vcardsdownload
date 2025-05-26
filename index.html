@@ -45,7 +45,6 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      position: relative;
     }
 
     .profile-img {
@@ -66,4 +65,58 @@
     }
 
     .subtitle {
-      font-size: 1.
+      font-size: 1.1em;
+      color: var(--champagne);
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .buttons a {
+      text-align: center;
+      padding: 15px;
+      border-radius: 12px;
+      font-weight: bold;
+      color: var(--black);
+      background: var(--lux-gradient);
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    }
+
+    .buttons a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+      color: var(--white);
+    }
+
+    footer {
+      font-size: 0.8em;
+      color: #777;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="https://via.placeholder.com/130x130.png?text=Thabo" alt="Profile" class="profile-img" />
+    <h1>Thabo Phaahla</h1>
+    <p class="subtitle">VIRTUAL CARD</p>
+    <div class="buttons">
+      <a href="https://wa.me/27820412395">WhatsApp Me</a>
+      <a href="mailto:thabo.phaahla@virtualwarecloud.com">Email Me</a>
+      <a href="tel:+27820412395">Call Me</a>
+      <a href="social-media.html">My Social Media</a>
+      <a href="https://thabophaahla-cv.vercel.app/">Services</a>
+    </div>
+    <footer>&copy; 2025 Thabo Phaahla</footer>
+  </div>
+</body>
+</html>
