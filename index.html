@@ -3,194 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <title>Thabo Phaahla – Virtual Card</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://virtualwarecloud.github.io/vcardsdownload/icons/star-gold.png" type="image/png">
   <style>
     :root {
-      --gold:   #FFD700;
-      --black:  #000000;
+      --gold: #FFD700;
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --neon: #00FFFF;
       --silver: #C0C0C0;
-      --yellow: #FFFF00;
+      --deep-blue: #081F4D;
+      --gradient: linear-gradient(135deg, #FFD700, #FF8C00, #FF1493, #00FFFF);
     }
-    
-    /* Reset & basic styling */
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      position: relative;
+      font-family: 'Outfit', sans-serif;
+      background-color: #000;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      overflow: hidden;
     }
-    
-    /* Video Background */
+
     #bgVideo {
       position: fixed;
       top: 0;
       left: 0;
       min-width: 100%;
       min-height: 100%;
-      width: auto;
-      height: auto;
-      z-index: -1;
       object-fit: cover;
+      z-index: -10;
+      opacity: 0.2;
+      filter: blur(2px);
     }
-    
-    /* Card Wrapper centers the card */
+
     .card-wrapper {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      position: relative;
+      padding: 30px;
+      z-index: 2;
+      animation: floatGlow 8s infinite ease-in-out;
     }
-    
-    /* Card Container with glassmorphism effect and 3D perspective */
+
     .card {
-      background: rgba(0, 0, 0, 0.9);
-      border: 2px solid white;
+      background: rgba(20, 20, 20, 0.85);
+      border: 1px solid var(--gold);
       border-radius: 20px;
-      width: 320px;
-      padding: 20px;
-      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(5px);
+      padding: 25px 30px;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+      backdrop-filter: blur(20px);
+      color: var(--white);
       text-align: center;
-      color: var(--silver);
-      transform: perspective(1000px);
-      transition: transform 0.5s;
-      transform-style: preserve-3d;
+      transition: transform 0.4s ease;
     }
+
     .card:hover {
-      transform: perspective(1000px) rotateY(10deg) rotateX(5deg);
+      transform: scale(1.03);
+      box-shadow: 0 0 30px var(--gold);
     }
-    
-    /* Headshot image placed at the top with white border and subtle 3D lift */
+
     .profile-img {
-      width: 120px;
-      height: 120px;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
-      border: 4px solid white;
+      border: 4px solid var(--gold);
       object-fit: cover;
-      margin: 0 auto 15px;
-      display: block;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transform: translateZ(30px);
+      margin-bottom: 15px;
+      box-shadow: 0 0 15px var(--gold);
     }
-    
-    .card h1 {
-      font-size: 1.8em;
-      margin-bottom: 5px;
-      color: var(--gold);
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-      transform: translateZ(20px);
-    }
-    
-    .card p.subtitle {
-      font-size: 1em;
-      margin-bottom: 20px;
-      letter-spacing: 2px;
-      color: var(--silver);
-      transform: translateZ(20px);
-    }
-    
-    /* Buttons styled with our palette and white borders, enhanced with 3D hover effects */
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      transform: translateZ(20px);
-    }
-    .buttons a {
-      text-decoration: none;
-      padding: 12px;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid white;
-    }
-    .buttons a:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
-    }
-    
-    .btn-whatsapp {
-      background-color: var(--gold);
-      color: var(--black);
-    }
-    .btn-email {
-      background-color: var(--silver);
-      color: var(--black);
-    }
-    .btn-call {
-      background-color: var(--black);
-      color: var(--gold);
-    }
-    .btn-My Social Media{
-      background-color: var(--silver);
-      color: var(--gold);
-    }
-    
-    .btn-services {
-      background-color: var(--yellow);
-      color: var(--black);
-    }
-    
-    /* Mobile styling: card fills almost full screen on mobile devices by default */
-    @media (max-width: 768px) {
-      .card {
-        width: 95vw;
-        height: 95vh;
-        padding: 30px;
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-      .profile-img {
-        width: 150px;
-        height: 150px;
-        margin-bottom: 20px;
-        transform: translateZ(40px);
-      }
-      .card h1 {
-        font-size: 2em;
-        transform: translateZ(30px);
-      }
-      .card p.subtitle {
-        font-size: 1.2em;
-        margin-bottom: 25px;
-        transform: translateZ(30px);
-      }
-      .buttons a {
-        padding: 16px;
-        font-size: 1.1em;
-      }
-    }
-  </style>
-</head>
-<body>
-  <video autoplay muted loop id="bgVideo">
-    <source src="this.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
-  
-  <div class="card-wrapper">
-    <div class="card">
-      <img src="profile.png" alt="Profile Picture" class="profile-img">
-      <h1>Thabo Phaahla</h1>
-      <p class="subtitle">VIRTUAL CARD</p>
-      <div class="buttons">
-        <a href="https://wa.me/27820412395?text=Hi%20Thabo%2C%20This%20is%20a%20message%20generated%20from%20your%20Virtual%20Card" class="btn-whatsapp">WhatsApp Me</a>
-        <a href="mailto:thabo.phaahla@virtualwarecloud.com" class="btn-email">Email Me</a>
-        <a href="tel:+27820412395" class="btn-call">Call Me</a>
-        <a href="social-media.html" class="btn-My Social Media">My Social Media</a>
-        <a href="https://thabophaahla-cv.vercel.app/" class="btn-services">Services</a>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+
+    h1 {
+      font-size: 1.9em;
+      margin-bottom: 6px;
+      background: var(--gradient);
+      background-clip: text;
