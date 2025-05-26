@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Thabo Phaahla – Virtual Card</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="https://virtualwarecloud.github.io/vcardsdownload/icons/star-gold.png" type="image/png">
   <style>
     :root {
       --gold: #FFD700;
@@ -91,4 +90,51 @@
       background: var(--gradient);
       background-size: 200% 200%;
       transition: all 0.3s ease;
-      border:
+      border: 2px solid transparent;
+    }
+
+    .buttons a:hover {
+      background: #000;
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    @keyframes floatGlow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 25px 20px;
+      }
+
+      .buttons a {
+        font-size: 1em;
+        padding: 12px;
+      }
+
+      .profile-img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card-wrapper">
+    <div class="card">
+      <img src="https://via.placeholder.com/120.png?text=Thabo" alt="Profile Picture" class="profile-img">
+      <h1>Thabo Phaahla</h1>
+      <p class="subtitle">VIRTUAL CARD</p>
+      <div class="buttons">
+        <a href="https://wa.me/27820412395">WhatsApp Me</a>
+        <a href="mailto:thabo.phaahla@virtualwarecloud.com">Email Me</a>
+        <a href="tel:+27820412395">Call Me</a>
+        <a href="social-media.html">My Social Media</a>
+        <a href="https://thabophaahla-cv.vercel.app/">Services</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
