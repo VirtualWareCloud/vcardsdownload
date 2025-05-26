@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <title>Thabo Phaahla – Virtual Card</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://virtualwarecloud.github.io/vcardsdownload/icons/star-gold.png" type="image/png">
   <style>
     :root {
       --gold: #FFD700;
-      --black: #0a0a0a;
       --silver: #C0C0C0;
+      --black: #0a0a0a;
       --gradient: linear-gradient(135deg, #FFD700, #FF8C00, #FF1493, #00FFFF);
     }
 
@@ -20,106 +21,74 @@
 
     body {
       font-family: 'Outfit', sans-serif;
-      background: linear-gradient(120deg, #000000, #1c1c1c);
+      background: radial-gradient(circle at center, #1e1e1e 0%, #000000 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 20px;
+      color: var(--silver);
     }
 
     .card-wrapper {
-      animation: floatGlow 8s infinite ease-in-out;
+      animation: floatGlow 6s infinite ease-in-out;
     }
 
     .card {
-      background: rgba(30, 30, 30, 0.95);
+      background: rgba(20, 20, 20, 0.95);
       border: 2px solid var(--gold);
       border-radius: 20px;
-      padding: 25px;
-      max-width: 350px;
-      width: 90vw;
+      padding: 30px 25px;
+      max-width: 360px;
+      width: 100%;
       text-align: center;
-      color: var(--silver);
-      box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+      transition: transform 0.3s ease;
     }
 
     .card:hover {
       transform: scale(1.03);
-      transition: 0.3s ease;
+      box-shadow: 0 0 35px rgba(255, 215, 0, 0.6);
     }
 
     .profile-img {
       width: 120px;
       height: 120px;
       border-radius: 50%;
-      border: 4px solid var(--gold);
       object-fit: cover;
-      margin-bottom: 15px;
+      border: 3px solid var(--gold);
       box-shadow: 0 0 15px var(--gold);
+      margin-bottom: 20px;
     }
 
     h1 {
-      font-size: 1.9em;
+      font-size: 1.8em;
       background: var(--gradient);
       -webkit-background-clip: text;
       color: transparent;
-      animation: pulseText 4s infinite;
+      margin-bottom: 10px;
     }
 
     .subtitle {
       font-size: 1em;
-      margin-bottom: 20px;
       letter-spacing: 2px;
+      margin-bottom: 25px;
     }
 
     .buttons {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
     }
 
     .buttons a {
+      display: block;
       text-decoration: none;
-      padding: 12px;
+      padding: 14px;
       border-radius: 10px;
       font-weight: bold;
-      background: var(--gradient);
       color: var(--black);
+      background: var(--gradient);
+      background-size: 200% 200%;
       transition: all 0.3s ease;
-      border: 2px solid transparent;
-    }
-
-    .buttons a:hover {
-      background: #000;
-      color: var(--gold);
-      border-color: var(--gold);
-    }
-
-    @keyframes floatGlow {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    @keyframes pulseText {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
-    }
-  </style>
-</head>
-<body>
-  <div class="card-wrapper">
-    <div class="card">
-      <img src="https://via.placeholder.com/120x120.png?text=Thabo" alt="Profile" class="profile-img">
-      <h1>Thabo Phaahla</h1>
-      <p class="subtitle">VIRTUAL CARD</p>
-      <div class="buttons">
-        <a href="https://wa.me/27820412395">WhatsApp Me</a>
-        <a href="mailto:thabo.phaahla@virtualwarecloud.com">Email Me</a>
-        <a href="tel:+27820412395">Call Me</a>
-        <a href="social-media.html">My Social Media</a>
-        <a href="https://thabophaahla-cv.vercel.app/">Services</a>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+      border:
